@@ -64,7 +64,7 @@ dia-nn:
   input_files:
     report:
       name: 'report'
-      file: 'report.parquet'
+      file: 'report.tsv'
       help: 'DIA-NN report.parquet'
       default_enabled: true
       

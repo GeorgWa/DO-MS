@@ -75,7 +75,7 @@ shinyServer(function(input, output, session) {
   
   # listen to add folder modal completion
   observeEvent(input$add_folders_confirm, {
-   
+    
     # get a copy of the current list of folders
     .folders <- isolate(folders())
     # list of selected files
@@ -107,7 +107,7 @@ shinyServer(function(input, output, session) {
     new_folders <- c()
     # what to do with this folder
     if(input$add_folder_options == 'children' | input$add_folder_options == 'recursive') {
-      
+    
       # if add_children is checked, then look for child folders within the one specified
       # and add all of those. again, don't have to check if they contain relevant files, yet
       child_dirs <- list.dirs(path=directory, recursive=(input$add_folder_options == 'recursive'))
@@ -296,7 +296,7 @@ shinyServer(function(input, output, session) {
         # since a lot of MS data is very sparse and only using the first 1000
         # rows to guess may guess a column type wrong
         # Custom behavior for report
-        if(file$name == 'report') {
+        if(file$file == 'report.parquet') {
           .dat <- as.data.frame(read_parquet(file=file.path(folder$Path, file[['file']])))
         }
 
